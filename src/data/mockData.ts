@@ -76,7 +76,13 @@ export const areas: Area[] = [
               key: 'monat',
               label: 'Monate',
               data: [
-                { label: 'Feb', value: 88.0 },
+                { label: 'Aug', value: 91.5 },
+                { label: 'Sep', value: 90.8 },
+                { label: 'Okt', value: 90.0 },
+                { label: 'Nov', value: 89.2 },
+                { label: 'Dez', value: 88.5 },
+                { label: 'Jan', value: 88.0 },
+                { label: 'Feb', value: 87.2 },
                 { label: 'Mär', value: 86.7 },
                 { label: 'Apr', value: 85.4 },
                 { label: 'Mai', value: 84.3 },
@@ -114,6 +120,12 @@ export const areas: Area[] = [
               key: 'monat',
               label: 'Monate',
               data: [
+                { label: 'Aug', value: 60 },
+                { label: 'Sep', value: 62.5 },
+                { label: 'Okt', value: 65 },
+                { label: 'Nov', value: 65 },
+                { label: 'Dez', value: 67.5 },
+                { label: 'Jan', value: 67.5 },
                 { label: 'Feb', value: 70 },
                 { label: 'Mär', value: 72.5 },
                 { label: 'Apr', value: 75 },
@@ -267,7 +279,18 @@ export const areas: Area[] = [
         { label: 'Restschuld', value: '14.200 €', hint: 'Start: 24.000 €' },
         { label: 'Schuldenfrei in', value: '13 Monaten', hint: 'bei aktueller Tilgung' },
         { label: 'Tilgung / Monat', value: '750 €', hint: 'Ø letzte 3 Monate' },
-        { label: 'Saldo diesen Monat', value: '+310 €', hint: 'Einnahmen − Ausgaben' },
+        { label: 'Fixkosten / Monat', value: '2.490 €', hint: 'Miete, Kredit, ...' },
+      ],
+      // Grundwerte für die Monatsbilanz (Lohn & feste Ausgaben)
+      monthlyBudget: { baseIncome: 2800, fixedExpenses: 2490, currency: '€' },
+      // Beispiel-Nebenverdienst (nur beim allerersten Start; danach lokal gespeichert)
+      sideIncomeSeed: [
+        { id: 'seed-1', dateISO: '2026-07-05', amount: 120, source: 'YouTube' },
+        { id: 'seed-2', dateISO: '2026-07-18', amount: 45, source: 'Suno' },
+        { id: 'seed-3', dateISO: '2026-06-10', amount: 90, source: 'YouTube' },
+        { id: 'seed-4', dateISO: '2026-05-22', amount: 300, source: 'Freelance' },
+        { id: 'seed-5', dateISO: '2026-04-14', amount: 30, source: 'Suno' },
+        { id: 'seed-6', dateISO: '2026-03-02', amount: 75, source: 'YouTube' },
       ],
       goals: [
         {

@@ -40,14 +40,17 @@ export function LineChart({
   unit = '',
   height = 180,
   goalLine,
+  fixedWidthPx,
 }: {
   data: SeriesPoint[]
   accent: string
   unit?: string
   height?: number
   goalLine?: number
+  /** feste Pixelbreite (für horizontal scrollbare/swipebare Graphen) */
+  fixedWidthPx?: number
 }) {
-  const width = 320
+  const width = fixedWidthPx ?? 320
   const padX = 6
   const padTop = 14
   const padBottom = 24
@@ -65,9 +68,13 @@ export function LineChart({
   const line = pts.map(([x, y], i) => `${i === 0 ? 'M' : 'L'}${x.toFixed(1)},${y.toFixed(1)}`).join(' ')
   const area = `${line} L${pts[pts.length - 1][0]},${padTop + innerH} L${pts[0][0]},${padTop + innerH} Z`
   const gid = `grad-${accent.replace('#', '')}`
-  const showEvery = Math.ceil(data.length / 8) // Labels ausdünnen bei vielen Punkten
+  const showEvery = fixedWidthPx ? 1 : Math.ceil(data.length / 8) // bei Scroll alle Labels zeigen
   return (
-    <svg viewBox={`0 0 ${width} ${height}`} className="w-full" style={{ height }}>
+    <svg
+      viewBox={`0 0 ${width} ${height}`}
+      className={fixedWidthPx ? '' : 'w-full'}
+      style={fixedWidthPx ? { width, height } : { height }}
+    >
       <defs>
         <linearGradient id={gid} x1="0" y1="0" x2="0" y2="1">
           <stop offset="0" stopColor={accent} stopOpacity="0.35" />
@@ -166,5 +173,55 @@ export function ProgressBar({ value, accent }: { value: number; accent: string }
         style={{ width: `${pct}%`, background: accent, boxShadow: `0 0 10px ${accent}aa` }}
       />
     </div>
+  )
+}
+
+// ── BarChart: vertikale Balken (z. B. Nebenverdienst pro Monat) ───────────────
+export function BarChart({
+  data,
+  accent,
+  unit = '',
+  height = 150,
+  highlightLast = true,
+}: {
+  data: SeriesPoint[]
+  accent: string
+  unit?: string
+  height?: number
+  highlightLast?: boolean
+}) {
+  const max = Math.max(...data.map((d) => d.value), 1)
+  const barW = 34
+  const gap = 14
+  const width = Math.max(320, data.length * (barW + gap) + gap)
+  const padTop = 18
+  const padBottom = 22
+  const innerH = height - padTop - padBottom
+  return (
+    <svg viewBox={`0 0 ${width} ${height}`} style={{ width, height }}>
+      {data.map((d, i) => {
+        const h = (d.value / max) * innerH
+        const x = gap + i * (barW + gap)
+        const y = padTop + innerH - h
+        const isLast = i === data.length - 1
+        const fill = highlightLast && isLast ? accent : `${accent}66`
+        return (
+          <g key={i}>
+            <rect x={x} y={y} width={barW} height={h} rx={5} fill={fill} />
+            <text x={x + barW / 2} y={y - 5} fontSize="9" fill="#b8c0d0" textAnchor="middle">
+              {d.value > 0 ? d.value.toLocaleString('de-DE') : ''}
+            </text>
+            <text x={x + barW / 2} y={height - 6} fontSize="9" fill="#8892a6" textAnchor="middle">
+              {d.label}
+            </text>
+          </g>
+        )
+      })}
+      {unit && (
+        <text x={gap} y={12} fontSize="8" fill="#8892a6">
+          in {unit}
+        </text>
+      )}
+    </svg>
   )
 }

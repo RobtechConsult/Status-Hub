@@ -6,6 +6,7 @@ import { DailyGoalCard } from './DailyGoalCard'
 import { BuildingBlocks } from './BuildingBlocks'
 import { ImportantDates } from './ImportantDates'
 import { IdeasCard } from './IdeasCard'
+import { MonthlyFinance } from './MonthlyFinance'
 import { FinanceGate } from './FinanceGate'
 
 function goalProgress(g: ProgressGoal): number {
@@ -104,6 +105,15 @@ export function AreaDetail({
               </div>
             ))}
           </div>
+
+          {/* Finanzen: Monatsbilanz + Nebenverdienst-Erfassung */}
+          {detail.monthlyBudget && (
+            <MonthlyFinance
+              budget={detail.monthlyBudget}
+              seed={detail.sideIncomeSeed ?? []}
+              accent={area.accent}
+            />
+          )}
 
           {/* Mess-Tracker mit Zeitraum-Umschaltung (z. B. Gewicht) */}
           {detail.trackers?.map((t) => (

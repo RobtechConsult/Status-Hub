@@ -121,6 +121,16 @@ Zu trackende Bausteine:
 > einsehbar. Das echte Passwort ist dem CEO bekannt und wird **nicht** im Repository
 > gespeichert (Umgebungsvariable zur Build-Zeit). Siehe Abschnitt 6.2.
 
+**Detailausbau (2026-07-23):**
+- **Monatsbilanz:** Einnahmen (Lohn + Nebenverdienst) − Ausgaben = **„Übrig"** prominent.
+- **Nebenverdienst-Erfassung:** Eingabefeld (Betrag + Quelle: YouTube/Suno/Freelance/…),
+  **lokal gespeichert** (localStorage), mit **Monats-Balkengraph** und Eintragsliste (löschbar).
+  → Erster echter „Daten eingeben & speichern"-Baustein (Vorbote Phase 2). Noch keine Cloud.
+- Restschuld-Verlauf, „schuldenfrei"-Datum, offene Rechnungen (unverändert, Beispieldaten).
+
+**Allgemein (2026-07-23):** Verlaufs-Graphen sind bei viel Historie **horizontal swipebar**
+(z. B. Gewicht/Bankdrücken über 12 Monate) — startet rechts (aktuell), Wischen zeigt Vergangenheit.
+
 ### 5.3 Training — Detailausbau & Datenquellen (CEO-Input 2026-07-23)
 
 Der Training-Detailbereich zeigt (aktuell mit **Beispiel-Daten**):
@@ -237,6 +247,8 @@ der CEO die KPIs (Abschnitt 5) und den Entwickler-Namen bestätigt.
 | 2026-07-23 | Training-Detail ausgebaut (Gewicht/Bankdrücken/Schritte, Zeiträume, Ziele) | CEO/Forge |
 | 2026-07-23 | Beziehung: „Score" → **Pflege-Index** (Ich-Fürsorge statt Benotung); Bausteine mit Ziel-Intervall + „fällig"; wichtige Termine mit Countdown; Ideen-Motor | CEO/Forge |
 | 2026-07-23 | Idee erfasst: „Javis-Intelligenz" (Claude-API im Hub, Pull-to-Refresh-Briefing) → eigene Ausbaustufe, siehe 7.1 | CEO |
+| 2026-07-23 | Finanzen: Monatsbilanz (Übrig) + Nebenverdienst-Erfassung mit lokaler Speicherung + Monatsgraph | CEO/Forge |
+| 2026-07-23 | Graphen allgemein horizontal swipebar bei viel Historie | CEO/Forge |
 | 2026-07-23 | **Stehende Freigabe:** abgestimmte Verbesserungen werden künftig automatisch sofort live geschaltet (Merge nach `main` → Deploy). Bei Heiklem (Sicherheit, Sichtbarkeit, echte Daten) fragt Javis weiter nach. | CEO |
 
 ---

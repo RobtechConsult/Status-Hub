@@ -68,6 +68,21 @@ export interface Bill {
   status: 'open' | 'paid' | 'overdue'
 }
 
+/** Ein Nebenverdienst-Eintrag (wird lokal gespeichert). */
+export interface SideIncomeEntry {
+  id: string
+  dateISO: string
+  amount: number
+  source: string
+}
+
+/** Grundwerte für die Monatsbilanz (Lohn/feste Ausgaben). */
+export interface MonthlyBudget {
+  baseIncome: number
+  fixedExpenses: number
+  currency?: string
+}
+
 /** Eine umschaltbare Zeitraum-Ansicht innerhalb eines Trackers. */
 export interface RangeSeries {
   key: string
@@ -127,6 +142,10 @@ export interface AreaDetail {
   ideas?: IdeaCategory[]
   /** Für Finanzen: offene Rechnungen */
   bills?: Bill[]
+  /** Für Finanzen: Grundwerte der Monatsbilanz */
+  monthlyBudget?: MonthlyBudget
+  /** Für Finanzen: Start-Beispieleinträge Nebenverdienst (falls noch nichts gespeichert) */
+  sideIncomeSeed?: SideIncomeEntry[]
 }
 
 export interface Area {

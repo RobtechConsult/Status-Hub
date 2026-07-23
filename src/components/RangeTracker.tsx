@@ -1,11 +1,24 @@
-import { useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import type { MetricTracker } from '../types'
 import { LineChart } from './charts'
 
 // Mess-Tracker mit umschaltbaren Zeiträumen (z. B. Gewicht: 7 Tage / 4 Wochen / Monate)
+// Bei vielen Datenpunkten wird der Graph horizontal swipebar (Historie).
 export function RangeTracker({ tracker, accent }: { tracker: MetricTracker; accent: string }) {
   const [active, setActive] = useState(0)
   const range = tracker.ranges[active] ?? tracker.ranges[0]
+  const scrollRef = useRef<HTMLDivElement>(null)
+
+  // Ab 8 Punkten swipebar; Breite ~48px pro Punkt
+  const scrollable = range.data.length > 8
+  const chartWidth = scrollable ? Math.max(320, range.data.length * 48) : undefined
+
+  // Beim Wechsel ans Ende (aktuellster Wert) scrollen
+  useEffect(() => {
+    if (scrollable && scrollRef.current) {
+      scrollRef.current.scrollLeft = scrollRef.current.scrollWidth
+    }
+  }, [active, scrollable])
 
   return (
     <div className="glass rounded-2xl p-4">
@@ -44,7 +57,22 @@ export function RangeTracker({ tracker, accent }: { tracker: MetricTracker; acce
         ))}
       </div>
 
-      <LineChart data={range.data} accent={accent} unit={tracker.unit} goalLine={tracker.goalLine} />
+      {scrollable ? (
+        <>
+          <div ref={scrollRef} className="no-scrollbar overflow-x-auto">
+            <LineChart
+              data={range.data}
+              accent={accent}
+              unit={tracker.unit}
+              goalLine={tracker.goalLine}
+              fixedWidthPx={chartWidth}
+            />
+          </div>
+          <div className="mt-1 text-center text-[10px] text-slate-500">← wischen für frühere Werte</div>
+        </>
+      ) : (
+        <LineChart data={range.data} accent={accent} unit={tracker.unit} goalLine={tracker.goalLine} />
+      )}
     </div>
   )
 }
