@@ -192,6 +192,9 @@ der CEO die KPIs (Abschnitt 5) und den Entwickler-Namen bestätigt.
 | 2026-07-23 | Finanzen-Bereich passwortgeschützt (Sichtschutz; echtes PW via Umgebungsvariable, nicht im Repo) | CEO |
 | 2026-07-23 | Look: Dark, modern, fancy mit Effekten, viele Graphen | CEO |
 | 2026-07-23 | Forge offiziell mit Phase 1 beauftragt | Javis |
+| 2026-07-23 | Repo öffentlich geschaltet (für iPhone-Test mit Fake-Daten); `finbert22` aus Code+Historie entfernt, PW jetzt via `VITE_FINANCE_PASSWORD` (Public-Test-PW: `demo`) | CEO/Javis |
+| 2026-07-23 | Code auf `main` gemergt; GitHub Pages Deploy erfolgreich | CEO/Javis |
+| 2026-07-23 | **🟢 LIVE:** https://robtechconsult.github.io/Status-Hub/ | — |
 
 ---
 
