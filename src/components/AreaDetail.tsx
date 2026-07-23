@@ -1,6 +1,8 @@
 import type { Area, ProgressGoal } from '../types'
 import { statusColor, statusLabel, trendGlyph, trendColor, formatEuro } from '../lib/ui'
 import { LineChart, ProgressBar, ProgressRing } from './charts'
+import { RangeTracker } from './RangeTracker'
+import { DailyGoalCard } from './DailyGoalCard'
 import { FinanceGate } from './FinanceGate'
 
 function goalProgress(g: ProgressGoal): number {
@@ -99,6 +101,16 @@ export function AreaDetail({
               </div>
             ))}
           </div>
+
+          {/* Mess-Tracker mit Zeitraum-Umschaltung (z. B. Gewicht) */}
+          {detail.trackers?.map((t) => (
+            <RangeTracker key={t.id} tracker={t} accent={area.accent} />
+          ))}
+
+          {/* Tagesziele (z. B. Schritte) */}
+          {detail.dailyGoals?.map((g) => (
+            <DailyGoalCard key={g.id} goal={g} accent={area.accent} />
+          ))}
 
           {/* Verlaufs-Graph */}
           {detail.series && (

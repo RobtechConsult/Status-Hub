@@ -31,14 +31,119 @@ export const areas: Area[] = [
     detail: {
       streak: { label: 'Streak', days: 12 },
       metrics: [
-        { label: 'Diese Woche', value: '3 / 4', hint: 'Workouts' },
-        { label: 'Ø pro Woche', value: '3,4', hint: 'letzte 8 Wochen' },
-        { label: 'Bestleistung Kniebeuge', value: '95 kg', hint: '+5 kg diesen Monat' },
-        { label: 'Aktive Minuten', value: '210', hint: 'diese Woche' },
+        { label: 'Workouts diese Woche', value: '3 / 4', hint: 'Ziel 4×' },
+        { label: 'Bankdrücken (6 Wdh.)', value: '82,5 kg', hint: 'konstanteste Übung · +2,5 kg/Monat' },
+        { label: 'Körpergewicht', value: '82,4 kg', hint: 'Ziel: 78,0 kg' },
+        { label: 'Schritte heute', value: '7.412', hint: 'Ziel 10.000' },
+      ],
+      // Mess-Tracker mit umschaltbaren Zeiträumen (7 Tage / 4 Wochen-Ø / Monate)
+      trackers: [
+        {
+          id: 'gewicht',
+          title: 'Körpergewicht',
+          icon: '⚖️',
+          current: '82,4 kg',
+          sub: 'Ziel: 78,0 kg (−4,4 kg)',
+          unit: ' kg',
+          invert: true, // abnehmen = gut
+          goalLine: 78,
+          source: 'YAZIO (geplant)',
+          ranges: [
+            {
+              key: '7d',
+              label: '7 Tage',
+              data: [
+                { label: 'Mo', value: 83.1 },
+                { label: 'Di', value: 82.9 },
+                { label: 'Mi', value: 83.0 },
+                { label: 'Do', value: 82.6 },
+                { label: 'Fr', value: 82.7 },
+                { label: 'Sa', value: 82.5 },
+                { label: 'So', value: 82.4 },
+              ],
+            },
+            {
+              key: '4w',
+              label: '4 Wochen',
+              data: [
+                { label: 'KW-3', value: 84.2 },
+                { label: 'KW-2', value: 83.6 },
+                { label: 'KW-1', value: 83.0 },
+                { label: 'Diese', value: 82.6 },
+              ],
+            },
+            {
+              key: 'monat',
+              label: 'Monate',
+              data: [
+                { label: 'Feb', value: 88.0 },
+                { label: 'Mär', value: 86.7 },
+                { label: 'Apr', value: 85.4 },
+                { label: 'Mai', value: 84.3 },
+                { label: 'Jun', value: 83.2 },
+                { label: 'Jul', value: 82.4 },
+              ],
+            },
+          ],
+        },
+        {
+          id: 'bankdruecken',
+          title: 'Bankdrücken (6 Wdh.)',
+          icon: '💪',
+          current: '82,5 kg',
+          sub: 'Arbeitsgewicht · Ziel 90 kg',
+          unit: ' kg',
+          goalLine: 90,
+          source: 'AlphaProgression (geplant)',
+          ranges: [
+            {
+              key: 'saetze',
+              label: 'Letzte Sätze',
+              data: [
+                { label: '', value: 75 },
+                { label: '', value: 77.5 },
+                { label: '', value: 77.5 },
+                { label: '', value: 80 },
+                { label: '', value: 80 },
+                { label: '', value: 82.5 },
+                { label: '', value: 80 },
+                { label: 'Heute', value: 82.5 },
+              ],
+            },
+            {
+              key: 'monat',
+              label: 'Monate',
+              data: [
+                { label: 'Feb', value: 70 },
+                { label: 'Mär', value: 72.5 },
+                { label: 'Apr', value: 75 },
+                { label: 'Mai', value: 77.5 },
+                { label: 'Jun', value: 80 },
+                { label: 'Jul', value: 82.5 },
+              ],
+            },
+          ],
+        },
+      ],
+      // Tagesziel Schritte (heute + Vergleichszeiträume)
+      dailyGoals: [
+        {
+          id: 'schritte',
+          title: 'Schritte',
+          icon: '👟',
+          unit: 'Schritte',
+          today: 7412,
+          goal: 10000,
+          source: 'Health (geplant)',
+          periods: [
+            { label: 'Ø letzte Woche', value: 9120, goal: 10000 },
+            { label: 'Ø diesen Monat', value: 8760, goal: 10000 },
+          ],
+        },
       ],
       goals: [
         { label: 'Wochenziel Workouts', current: 3, target: 4, unit: '' },
-        { label: 'Monatsziel', current: 11, target: 16, unit: '' },
+        { label: 'Monatsziel Workouts', current: 11, target: 16, unit: '' },
       ],
       series: {
         title: 'Workouts pro Woche',

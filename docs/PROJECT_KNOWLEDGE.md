@@ -84,7 +84,7 @@ Jeder Bereich braucht: **eine Kernzahl (KPI)**, **ein Erfolgs-Signal**, **einen 
 
 | Bereich | Kern-KPI | Erfolgs-Signal | Datenquelle (Start → Ziel) |
 |---|---|---|---|
-| 🏋️ Training | Workouts/Woche · Streak | Streak + neue Bestleistung | manuell → Strava/Apple Health API |
+| 🏋️ Training | Workouts/Woche · Streak | Streak + neue Bestleistung | siehe 5.3 |
 | ❤️ Beziehung | siehe 5.1 | gepflegte, gesunde Beziehung | **bewusst manuell** (Check-in) |
 | 💰 Finanzen | Voraussichtl. schuldenfrei-Datum | Restschuld ↓ / Fortschritt zur Schuldenfreiheit | manuell/CSV → Banking-Aggregator-API |
 
@@ -120,6 +120,25 @@ Zu trackende Bausteine:
 > 🔒 **Passwortschutz:** Der Finanzen-Bereich ist erst nach Eingabe eines Passworts
 > einsehbar. Das echte Passwort ist dem CEO bekannt und wird **nicht** im Repository
 > gespeichert (Umgebungsvariable zur Build-Zeit). Siehe Abschnitt 6.2.
+
+### 5.3 Training — Detailausbau & Datenquellen (CEO-Input 2026-07-23)
+
+Der Training-Detailbereich zeigt (aktuell mit **Beispiel-Daten**):
+- **Körpergewicht** mit umschaltbarer Verlaufskurve: **7 Tage · 4 Wochen (Wochen-Ø) · monatsweise**, inkl. gestrichelter **Ziellinie**.
+- **Bankdrücken (6 Wdh.)** als Leit-Bestleistung („konstanteste Übung"), mit Verlauf (letzte Sätze / Monate) und Ziellinie.
+- **Schritte** als Tagesziel: heute mit **Fortschrittsbalken**, plus Ø letzte Woche & Ø Monat.
+- Workouts/Woche, Streak, Wochen-/Monatsziel.
+
+**Geplante automatische Datenquellen (spätere Ausbaustufe):**
+| Quelle | Liefert | Machbarkeit |
+|---|---|---|
+| **YAZIO** | Körpergewicht, Ernährung | ⚠️ keine offene API — Export/Reverse-Engineering nötig |
+| **AlphaProgression** | Kraftwerte / Sätze | ⚠️ keine offene API — Export/Reverse-Engineering nötig |
+| **Apple Health** | Schritte, aktive Minuten | ✅ via HealthKit möglich (native Bridge / Shortcuts-Export) |
+
+> Javis-Hinweis: Bis diese Anbindungen stehen, werden die Werte manuell/halbautomatisch
+> gepflegt. Die Datenstruktur (`MetricTracker`, `DailyGoal`) ist so gebaut, dass die
+> Quellen später nur die Zahlen liefern müssen — die UI bleibt unverändert.
 
 ---
 

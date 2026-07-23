@@ -48,11 +48,57 @@ export interface Bill {
   status: 'open' | 'paid' | 'overdue'
 }
 
+/** Eine umschaltbare Zeitraum-Ansicht innerhalb eines Trackers. */
+export interface RangeSeries {
+  key: string
+  label: string
+  data: SeriesPoint[]
+}
+
+/**
+ * Ein Mess-Tracker mit umschaltbaren Zeiträumen (z. B. Gewicht: 7 Tage /
+ * 4 Wochen / monatsweise). Optional mit Zielline.
+ */
+export interface MetricTracker {
+  id: string
+  title: string
+  icon?: string
+  current: string
+  sub?: string
+  unit?: string
+  /** true = niedriger ist besser (z. B. Körpergewicht Richtung Ziel) */
+  invert?: boolean
+  /** optionale horizontale Ziellinie im Graphen (Rohwert) */
+  goalLine?: number
+  ranges: RangeSeries[]
+  /** Datenquelle-Label, z. B. "YAZIO (geplant)" */
+  source?: string
+}
+
+/**
+ * Ein Tagesziel mit Fortschritt (heute) plus Vergleichszeiträumen
+ * (z. B. Schritte: heute, Ø letzte Woche, Ø Monat).
+ */
+export interface DailyGoal {
+  id: string
+  title: string
+  icon?: string
+  unit?: string
+  today: number
+  goal: number
+  periods: { label: string; value: number; goal?: number }[]
+  source?: string
+}
+
 export interface AreaDetail {
   metrics: Metric[]
   series?: Series
   goals?: ProgressGoal[]
   streak?: { label: string; days: number }
+  /** Mess-Tracker mit Zeitraum-Umschaltung (z. B. Gewicht) */
+  trackers?: MetricTracker[]
+  /** Tagesziele mit Fortschritt (z. B. Schritte) */
+  dailyGoals?: DailyGoal[]
   /** Für Beziehung: einzelne Pflege-Bausteine */
   buildingBlocks?: BuildingBlock[]
   /** Für Finanzen: offene Rechnungen */

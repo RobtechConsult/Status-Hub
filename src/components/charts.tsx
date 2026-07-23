@@ -39,31 +39,33 @@ export function LineChart({
   accent,
   unit = '',
   height = 180,
+  goalLine,
 }: {
   data: SeriesPoint[]
   accent: string
   unit?: string
   height?: number
+  goalLine?: number
 }) {
   const width = 320
   const padX = 6
   const padTop = 14
   const padBottom = 24
   const values = data.map((d) => d.value)
-  const min = Math.min(...values)
-  const max = Math.max(...values)
+  // Zielline in die Skala einbeziehen, damit sie sichtbar bleibt.
+  const scaleVals = goalLine != null ? [...values, goalLine] : values
+  const min = Math.min(...scaleVals)
+  const max = Math.max(...scaleVals)
   const span = max - min || 1
   const innerW = width - padX * 2
   const innerH = height - padTop - padBottom
   const stepX = innerW / (data.length - 1)
-  const pts = values.map((v, i) => {
-    const x = padX + i * stepX
-    const y = padTop + innerH - ((v - min) / span) * innerH
-    return [x, y] as const
-  })
+  const yOf = (v: number) => padTop + innerH - ((v - min) / span) * innerH
+  const pts = values.map((v, i) => [padX + i * stepX, yOf(v)] as const)
   const line = pts.map(([x, y], i) => `${i === 0 ? 'M' : 'L'}${x.toFixed(1)},${y.toFixed(1)}`).join(' ')
   const area = `${line} L${pts[pts.length - 1][0]},${padTop + innerH} L${pts[0][0]},${padTop + innerH} Z`
   const gid = `grad-${accent.replace('#', '')}`
+  const showEvery = Math.ceil(data.length / 8) // Labels ausdünnen bei vielen Punkten
   return (
     <svg viewBox={`0 0 ${width} ${height}`} className="w-full" style={{ height }}>
       <defs>
@@ -72,16 +74,36 @@ export function LineChart({
           <stop offset="1" stopColor={accent} stopOpacity="0" />
         </linearGradient>
       </defs>
+      {goalLine != null && (
+        <>
+          <line
+            x1={padX}
+            x2={width - padX}
+            y1={yOf(goalLine)}
+            y2={yOf(goalLine)}
+            stroke="#ffffff"
+            strokeOpacity="0.35"
+            strokeWidth="1"
+            strokeDasharray="4 4"
+          />
+          <text x={width - padX} y={yOf(goalLine) - 3} fontSize="8" fill="#b8c0d0" textAnchor="end">
+            Ziel {goalLine.toLocaleString('de-DE')}
+            {unit}
+          </text>
+        </>
+      )}
       <path d={area} fill={`url(#${gid})`} />
       <path d={line} fill="none" stroke={accent} strokeWidth={2.5} strokeLinecap="round" strokeLinejoin="round" />
       {pts.map(([x, y], i) => (
         <circle key={i} cx={x} cy={y} r={i === pts.length - 1 ? 4 : 2.5} fill={accent} />
       ))}
-      {data.map((d, i) => (
-        <text key={i} x={pts[i][0]} y={height - 6} fontSize="9" fill="#8892a6" textAnchor="middle">
-          {d.label}
-        </text>
-      ))}
+      {data.map((d, i) =>
+        i % showEvery === 0 || i === data.length - 1 ? (
+          <text key={i} x={pts[i][0]} y={height - 6} fontSize="9" fill="#8892a6" textAnchor="middle">
+            {d.label}
+          </text>
+        ) : null,
+      )}
       <text x={padX} y={11} fontSize="9" fill="#8892a6">
         {max.toLocaleString('de-DE')}
         {unit}
