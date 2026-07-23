@@ -1,3 +1,4 @@
+import { useState } from 'react'
 import type { SeriesPoint } from '../types'
 
 // ── Sparkline: kompakte Mini-Linie für Kacheln ───────────────────────────────
@@ -50,6 +51,7 @@ export function LineChart({
   /** feste Pixelbreite (für horizontal scrollbare/swipebare Graphen) */
   fixedWidthPx?: number
 }) {
+  const [active, setActive] = useState<number | null>(null)
   const width = fixedWidthPx ?? 320
   const padX = 6
   const padTop = 14
@@ -99,22 +101,77 @@ export function LineChart({
           </text>
         </>
       )}
-      <path d={area} fill={`url(#${gid})`} />
-      <path d={line} fill="none" stroke={accent} strokeWidth={2.5} strokeLinecap="round" strokeLinejoin="round" />
+      {/* Hintergrund zum Schließen des Tooltips */}
+      <rect x="0" y="0" width={width} height={height} fill="transparent" onClick={() => setActive(null)} />
+      <path d={area} fill={`url(#${gid})`} pointerEvents="none" />
+      <path
+        d={line}
+        fill="none"
+        stroke={accent}
+        strokeWidth={2.5}
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        pointerEvents="none"
+      />
       {pts.map(([x, y], i) => (
-        <circle key={i} cx={x} cy={y} r={i === pts.length - 1 ? 4 : 2.5} fill={accent} />
+        <circle
+          key={i}
+          cx={x}
+          cy={y}
+          r={active === i ? 5 : i === pts.length - 1 ? 4 : 2.5}
+          fill={accent}
+          pointerEvents="none"
+        />
+      ))}
+      {/* Große, unsichtbare Tap-Flächen für bequemes Antippen */}
+      {pts.map(([x, y], i) => (
+        <circle
+          key={`hit-${i}`}
+          cx={x}
+          cy={y}
+          r={14}
+          fill="transparent"
+          style={{ cursor: 'pointer' }}
+          onClick={() => setActive((a) => (a === i ? null : i))}
+        />
       ))}
       {data.map((d, i) =>
         i % showEvery === 0 || i === data.length - 1 ? (
-          <text key={i} x={pts[i][0]} y={height - 6} fontSize="9" fill="#8892a6" textAnchor="middle">
+          <text key={i} x={pts[i][0]} y={height - 6} fontSize="9" fill="#8892a6" textAnchor="middle" pointerEvents="none">
             {d.label}
           </text>
         ) : null,
       )}
-      <text x={padX} y={11} fontSize="9" fill="#8892a6">
+      <text x={padX} y={11} fontSize="9" fill="#8892a6" pointerEvents="none">
         {max.toLocaleString('de-DE')}
         {unit}
       </text>
+      {/* Tooltip beim Antippen eines Punkts */}
+      {active != null &&
+        (() => {
+          const [px, py] = pts[active]
+          const d = data[active]
+          const valText = `${d.value.toLocaleString('de-DE')}${unit}`
+          const w = Math.max(46, valText.length * 7 + 16)
+          const th = d.label ? 32 : 20
+          let tx = px - w / 2
+          tx = Math.max(2, Math.min(tx, width - w - 2))
+          let ty = py - th - 10
+          if (ty < 0) ty = py + 12
+          return (
+            <g pointerEvents="none">
+              <rect x={tx} y={ty} width={w} height={th} rx={6} fill="#0b0f1a" stroke={accent} strokeOpacity="0.6" />
+              <text x={tx + w / 2} y={ty + (d.label ? 14 : 14)} fontSize="11" fontWeight="700" fill="#e5e9f2" textAnchor="middle">
+                {valText}
+              </text>
+              {d.label && (
+                <text x={tx + w / 2} y={ty + 26} fontSize="8" fill="#8892a6" textAnchor="middle">
+                  {d.label}
+                </text>
+              )}
+            </g>
+          )
+        })()}
     </svg>
   )
 }

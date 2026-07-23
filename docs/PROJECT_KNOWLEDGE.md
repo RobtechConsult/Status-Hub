@@ -249,6 +249,7 @@ der CEO die KPIs (Abschnitt 5) und den Entwickler-Namen bestätigt.
 | 2026-07-23 | Idee erfasst: „Javis-Intelligenz" (Claude-API im Hub, Pull-to-Refresh-Briefing) → eigene Ausbaustufe, siehe 7.1 | CEO |
 | 2026-07-23 | Finanzen: Monatsbilanz (Übrig) + Nebenverdienst-Erfassung mit lokaler Speicherung + Monatsgraph | CEO/Forge |
 | 2026-07-23 | Graphen allgemein horizontal swipebar bei viel Historie | CEO/Forge |
+| 2026-07-23 | Gewicht „4 Wochen" → „Wochen" (12 Wochen, swipebar); Tooltip: Punkt antippen zeigt exakten Wert | CEO/Forge |
 | 2026-07-23 | **Stehende Freigabe:** abgestimmte Verbesserungen werden künftig automatisch sofort live geschaltet (Merge nach `main` → Deploy). Bei Heiklem (Sicherheit, Sichtbarkeit, echte Daten) fragt Javis weiter nach. | CEO |
 
 ---
