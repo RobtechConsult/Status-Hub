@@ -39,6 +39,26 @@ export interface BuildingBlock {
   label: string
   lastLabel: string
   status: Status
+  /** Tage seit dem letzten Mal */
+  daysSince?: number
+  /** Ziel-Intervall in Tagen (z. B. Date Night alle 10 Tage) */
+  targetDays?: number
+}
+
+/** Wichtiger Termin mit Countdown (z. B. Jahrestag, Geburtstag). */
+export interface ImportantDate {
+  label: string
+  when: string
+  daysUntil: number
+  icon?: string
+}
+
+/** Ideen-Kategorie für den Vorschlags-Motor (kuratiert; später KI-generiert). */
+export interface IdeaCategory {
+  key: string
+  label: string
+  icon?: string
+  ideas: string[]
 }
 
 export interface Bill {
@@ -101,6 +121,10 @@ export interface AreaDetail {
   dailyGoals?: DailyGoal[]
   /** Für Beziehung: einzelne Pflege-Bausteine */
   buildingBlocks?: BuildingBlock[]
+  /** Für Beziehung: wichtige Termine mit Countdown */
+  importantDates?: ImportantDate[]
+  /** Für Beziehung: Ideen-Motor (kuratiert; später KI-generiert) */
+  ideas?: IdeaCategory[]
   /** Für Finanzen: offene Rechnungen */
   bills?: Bill[]
 }

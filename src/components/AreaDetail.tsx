@@ -3,6 +3,9 @@ import { statusColor, statusLabel, trendGlyph, trendColor, formatEuro } from '..
 import { LineChart, ProgressBar, ProgressRing } from './charts'
 import { RangeTracker } from './RangeTracker'
 import { DailyGoalCard } from './DailyGoalCard'
+import { BuildingBlocks } from './BuildingBlocks'
+import { ImportantDates } from './ImportantDates'
+import { IdeasCard } from './IdeasCard'
 import { FinanceGate } from './FinanceGate'
 
 function goalProgress(g: ProgressGoal): number {
@@ -145,24 +148,14 @@ export function AreaDetail({
             </div>
           )}
 
-          {/* Beziehung: Pflege-Bausteine */}
-          {detail.buildingBlocks && (
-            <div className="glass rounded-2xl p-4">
-              <div className="mb-3 text-sm font-medium">Bausteine der Beziehung</div>
-              <div className="grid grid-cols-2 gap-3">
-                {detail.buildingBlocks.map((b, i) => (
-                  <div key={i} className="rounded-xl bg-white/5 p-3">
-                    <div className="flex items-center justify-between">
-                      <span className="text-xl">{b.icon}</span>
-                      <span className="inline-block h-2.5 w-2.5 rounded-full" style={{ background: statusColor[b.status] }} />
-                    </div>
-                    <div className="mt-2 text-sm font-medium">{b.label}</div>
-                    <div className="text-[11px] text-slate-400">{b.lastLabel}</div>
-                  </div>
-                ))}
-              </div>
-            </div>
-          )}
+          {/* Beziehung: Pflege-Bausteine mit Rhythmus */}
+          {detail.buildingBlocks && <BuildingBlocks blocks={detail.buildingBlocks} accent={area.accent} />}
+
+          {/* Beziehung: wichtige Termine mit Countdown */}
+          {detail.importantDates && <ImportantDates dates={detail.importantDates} accent={area.accent} />}
+
+          {/* Beziehung: Ideen-Motor */}
+          {detail.ideas && <IdeasCard categories={detail.ideas} accent={area.accent} />}
 
           {/* Finanzen: offene Rechnungen */}
           {detail.bills && (

@@ -168,26 +168,73 @@ export const areas: Area[] = [
     icon: '❤️',
     accent: '#f472b6',
     status: 'yellow',
-    kpiLabel: 'Beziehungs-Score',
+    kpiLabel: 'Pflege-Index',
     kpiValue: '78',
     trend: 'down',
     trendLabel: '−6 vs. Vorwoche',
-    nextStep: 'Date Night für Freitag planen',
+    nextStep: 'Date Night ist überfällig – Idee: Freitag Italiener',
     detail: {
       metrics: [
-        { label: 'Beziehungs-Score', value: '78 / 100', hint: 'gesunde Balance = 85+' },
+        { label: 'Pflege-Index', value: '78 / 100', hint: 'deine Fürsorge-Konstanz' },
         { label: 'Letzte Date Night', value: 'vor 12 Tagen', hint: 'Ziel: alle 10 Tage' },
         { label: 'Zeit mit Kind', value: 'gestern', hint: 'Spielplatz' },
         { label: 'Letzte Geste', value: 'vor 3 Tagen', hint: 'Kaffee ans Bett' },
       ],
+      // Bausteine mit Ziel-Intervall (Rhythmus) → Ampel & „fällig" abgeleitet
       buildingBlocks: [
-        { icon: '🍷', label: 'Date Night', lastLabel: 'vor 12 Tagen', status: 'yellow' },
-        { icon: '🎁', label: 'Gesten', lastLabel: 'vor 3 Tagen', status: 'green' },
-        { icon: '🧸', label: 'Zeit mit Kind', lastLabel: 'gestern', status: 'green' },
-        { icon: '💬', label: 'Qualitätszeit', lastLabel: 'vor 2 Tagen', status: 'green' },
+        { icon: '🍷', label: 'Date Night', lastLabel: 'vor 12 Tagen', status: 'red', daysSince: 12, targetDays: 10 },
+        { icon: '🎁', label: 'Gesten', lastLabel: 'vor 3 Tagen', status: 'green', daysSince: 3, targetDays: 4 },
+        { icon: '🧸', label: 'Zeit mit Kind', lastLabel: 'gestern', status: 'green', daysSince: 1, targetDays: 2 },
+        { icon: '💬', label: 'Qualitätszeit', lastLabel: 'vor 2 Tagen', status: 'green', daysSince: 2, targetDays: 3 },
+      ],
+      // Wichtige Termine mit Countdown
+      importantDates: [
+        { icon: '💍', label: 'Jahrestag', when: '26. Aug', daysUntil: 34 },
+        { icon: '🎂', label: 'Geburtstag Partnerin', when: '4. Aug', daysUntil: 12 },
+        { icon: '💕', label: 'Kennenlern-Tag', when: '19. Okt', daysUntil: 88 },
+      ],
+      // Ideen-Motor (kuratiert; später KI-generiert)
+      ideas: [
+        {
+          key: 'date',
+          label: 'Date Night',
+          icon: '🍷',
+          ideas: [
+            'Essen im neuen Italiener',
+            'Kino-Abend mit Lieblingssnacks',
+            'Sonnenuntergang-Spaziergang + Eis',
+            'Zuhause zusammen kochen & Wein',
+            'Minigolf oder Bowling',
+            'Live-Musik / kleines Konzert',
+          ],
+        },
+        {
+          key: 'geste',
+          label: 'Gesten',
+          icon: '🎁',
+          ideas: [
+            'Kaffee ans Bett bringen',
+            'Lieblingssnack mitbringen',
+            'Ehrliche Komplimentsnachricht schreiben',
+            'Kleinen Zettel in die Tasche legen',
+            'Eine lästige Aufgabe abnehmen',
+          ],
+        },
+        {
+          key: 'kind',
+          label: 'Zeit mit Kind',
+          icon: '🧸',
+          ideas: [
+            'Zusammen etwas backen',
+            'Ausflug zum Spielplatz',
+            'Schwimmbad-Nachmittag',
+            'Bilderbuch-Abend',
+            'Kleine Fahrrad-Tour',
+          ],
+        },
       ],
       series: {
-        title: 'Beziehungs-Score (Wochen)',
+        title: 'Pflege-Index (Wochen)',
         data: [
           { label: 'KW1', value: 72 },
           { label: 'KW2', value: 80 },

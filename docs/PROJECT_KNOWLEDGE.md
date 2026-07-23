@@ -193,6 +193,26 @@ Phase 4  Weitere Schnittstellen   Finanzen, Training-APIs, weitere Bereiche
 Phase 5  Intelligenz              Trends, Erinnerungen, „Javis spricht mit dir"
 ```
 
+### 7.1 Ausbaustufe „Javis-Intelligenz" (CEO-Idee 2026-07-23)
+
+**Vision:** Pull-to-Refresh / „Aktualisieren"-Knopf im Hub → eine KI (Claude) geht die
+wichtigsten Punkte durch, bewertet Daten, schreibt ein Morgen-Briefing und generiert
+frische Vorschläge (z. B. Date-Ideen).
+
+**Technisch nötig (ehrlich):**
+- Der Hub ist aktuell reines Frontend → kann selbst nicht „denken".
+- Für Live-KI braucht es das **Claude-API** + einen **kleinen Server-Baustein**
+  (Serverless-Function), damit der API-Key nicht öffentlich im Code liegt.
+- Kosten: wenige Cent pro Refresh. Verbindet sich mit Claude (dem Modell) via API —
+  nicht mit einer konkreten Chat-Sitzung.
+- Kann Daten *interpretieren & vorschlagen*, aber **nicht** automatisch externe Quellen
+  (YAZIO/Health) auslesen — das bleibt die separate Integrations-Baustelle.
+
+**Gestaffelter Plan:**
+1. Jetzt: Ideen-Motor mit **kuratiertem Pool** (offline, kostenlos) — bereits umgesetzt.
+2. Später: Quelle gegen **Claude-API** tauschen (Bedienung bleibt gleich) + Server-Baustein.
+   Passt zu Phase 2 (echte Daten), weil das Briefing erst mit echten Zahlen wertvoll wird.
+
 **Aktueller Stand:** Ende Phase 0. Forge kann mit Phase 1 beauftragt werden, sobald
 der CEO die KPIs (Abschnitt 5) und den Entwickler-Namen bestätigt.
 
@@ -215,6 +235,8 @@ der CEO die KPIs (Abschnitt 5) und den Entwickler-Namen bestätigt.
 | 2026-07-23 | Code auf `main` gemergt; GitHub Pages Deploy erfolgreich | CEO/Javis |
 | 2026-07-23 | **🟢 LIVE:** https://robtechconsult.github.io/Status-Hub/ | — |
 | 2026-07-23 | Training-Detail ausgebaut (Gewicht/Bankdrücken/Schritte, Zeiträume, Ziele) | CEO/Forge |
+| 2026-07-23 | Beziehung: „Score" → **Pflege-Index** (Ich-Fürsorge statt Benotung); Bausteine mit Ziel-Intervall + „fällig"; wichtige Termine mit Countdown; Ideen-Motor | CEO/Forge |
+| 2026-07-23 | Idee erfasst: „Javis-Intelligenz" (Claude-API im Hub, Pull-to-Refresh-Briefing) → eigene Ausbaustufe, siehe 7.1 | CEO |
 | 2026-07-23 | **Stehende Freigabe:** abgestimmte Verbesserungen werden künftig automatisch sofort live geschaltet (Merge nach `main` → Deploy). Bei Heiklem (Sicherheit, Sichtbarkeit, echte Daten) fragt Javis weiter nach. | CEO |
 
 ---
