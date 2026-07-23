@@ -52,6 +52,14 @@ export function LineChart({
   fixedWidthPx?: number
 }) {
   const [active, setActive] = useState<number | null>(null)
+  // Robust gegen leere / zu kurze Datensätze (z. B. beim ersten Laden)
+  if (data.length < 2) {
+    return (
+      <div className="py-6 text-center text-[11px] text-slate-500">
+        Noch zu wenig Daten für einen Graphen
+      </div>
+    )
+  }
   const width = fixedWidthPx ?? 320
   const padX = 6
   const padTop = 14

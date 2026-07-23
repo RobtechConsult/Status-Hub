@@ -2,6 +2,7 @@ import type { Area, ProgressGoal } from '../types'
 import { statusColor, statusLabel, trendGlyph, trendColor, formatEuro } from '../lib/ui'
 import { LineChart, ProgressBar, ProgressRing } from './charts'
 import { RangeTracker } from './RangeTracker'
+import { WeightTracker } from './WeightTracker'
 import { DailyGoalCard } from './DailyGoalCard'
 import { BuildingBlocks } from './BuildingBlocks'
 import { ImportantDates } from './ImportantDates'
@@ -124,7 +125,10 @@ export function AreaDetail({
           {/* Finanzen: Anstehende Zahlungen & Rücklagen */}
           {detail.upcomingSeed && <UpcomingPayments seed={detail.upcomingSeed} accent={area.accent} />}
 
-          {/* Mess-Tracker mit Zeitraum-Umschaltung (z. B. Gewicht) */}
+          {/* Training: Gewicht mit Eingabe (lokal, später YAZIO) */}
+          {detail.weightGoal != null && <WeightTracker goal={detail.weightGoal} accent={area.accent} />}
+
+          {/* Mess-Tracker mit Zeitraum-Umschaltung (z. B. Bankdrücken) */}
           {detail.trackers?.map((t) => (
             <RangeTracker key={t.id} tracker={t} accent={area.accent} />
           ))}

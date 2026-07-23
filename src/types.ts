@@ -76,6 +76,13 @@ export interface SideIncomeEntry {
   source: string
 }
 
+/** Ein Gewichts-Eintrag (lokal gespeichert; später von YAZIO befüllbar). */
+export interface WeightEntry {
+  id: string
+  dateISO: string
+  weight: number
+}
+
 /** Grundwerte für die Monatsbilanz (Lohn/feste Ausgaben). */
 export interface MonthlyBudget {
   baseIncome: number
@@ -158,8 +165,10 @@ export interface AreaDetail {
   series?: Series
   goals?: ProgressGoal[]
   streak?: { label: string; days: number }
-  /** Mess-Tracker mit Zeitraum-Umschaltung (z. B. Gewicht) */
+  /** Mess-Tracker mit Zeitraum-Umschaltung (z. B. Bankdrücken) */
   trackers?: MetricTracker[]
+  /** Für Training: Gewichts-Tracker mit Eingabe (lokal). Wert = Zielgewicht. */
+  weightGoal?: number
   /** Tagesziele mit Fortschritt (z. B. Schritte) */
   dailyGoals?: DailyGoal[]
   /** Für Beziehung: einzelne Pflege-Bausteine */

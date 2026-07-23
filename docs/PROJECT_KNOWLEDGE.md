@@ -155,6 +155,13 @@ Der Training-Detailbereich zeigt (aktuell mit **Beispiel-Daten**):
 - **Schritte** als Tagesziel: heute mit **Fortschrittsbalken**, plus Ø letzte Woche & Ø Monat.
 - Workouts/Woche, Streak, Wochen-/Monatsziel.
 
+**Gewicht — Eingabe & lokale Speicherung (2026-07-23):**
+- Eigener **Gewichts-Tracker mit Eingabefeld** (Datum + kg). Einträge werden **lokal**
+  gespeichert; die Ansichten **7 Tage / Wochen / Monate** werden automatisch daraus
+  aggregiert (Wochen-/Monats-Durchschnitt), swipebar, mit Tooltip & Ziellinie.
+- Bewusst als **Fundament** gebaut: der spätere YAZIO-Server füllt **dieselbe** Kurve —
+  Bedienung bleibt gleich. Manuelle Eingabe bleibt als Rückfall-Ebene.
+
 **Geplante automatische Datenquellen (spätere Ausbaustufe):**
 | Quelle | Liefert | Machbarkeit |
 |---|---|---|
@@ -268,6 +275,8 @@ der CEO die KPIs (Abschnitt 5) und den Entwickler-Namen bestätigt.
 | 2026-07-23 | Gewicht „4 Wochen" → „Wochen" (12 Wochen, swipebar); Tooltip: Punkt antippen zeigt exakten Wert | CEO/Forge |
 | 2026-07-23 | Finanzen: Modul „Schulden & Tilgung (Avalanche)" + „Anstehende Zahlungen/Rücklagen" (aus Kostenüberschlag.xlsx), editierbar & lokal, mit auto-Next-Steps | CEO/Forge |
 | 2026-07-23 | Finanzen: kategorisierte Ein-/Ausgaben (fix/variabel), editierbar & lokal; Monatsbilanz rechnet automatisch daraus | CEO/Forge |
+| 2026-07-23 | Training: Gewichts-Eingabe (lokal), Kurve aus Einträgen aggregiert (7T/Wochen/Monate) — Fundament für späteren YAZIO-Auto-Pull | CEO/Forge |
+| 2026-07-23 | Nächste große Stufe: Integrations-Server (YAZIO-Pull + Javis-Briefing) — braucht CEO-Zugangsdaten (serverseitig) + Hosting | offen |
 | 2026-07-23 | **Stehende Freigabe:** abgestimmte Verbesserungen werden künftig automatisch sofort live geschaltet (Merge nach `main` → Deploy). Bei Heiklem (Sicherheit, Sichtbarkeit, echte Daten) fragt Javis weiter nach. | CEO |
 
 ---

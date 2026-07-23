@@ -36,70 +36,10 @@ export const areas: Area[] = [
         { label: 'Körpergewicht', value: '82,4 kg', hint: 'Ziel: 78,0 kg' },
         { label: 'Schritte heute', value: '7.412', hint: 'Ziel 10.000' },
       ],
-      // Mess-Tracker mit umschaltbaren Zeiträumen (7 Tage / 4 Wochen-Ø / Monate)
+      // Gewichts-Tracker: eigene Komponente mit Eingabe (lokal). Zielgewicht:
+      weightGoal: 78,
+      // Mess-Tracker mit umschaltbaren Zeiträumen (Bankdrücken)
       trackers: [
-        {
-          id: 'gewicht',
-          title: 'Körpergewicht',
-          icon: '⚖️',
-          current: '82,4 kg',
-          sub: 'Ziel: 78,0 kg (−4,4 kg)',
-          unit: ' kg',
-          invert: true, // abnehmen = gut
-          goalLine: 78,
-          source: 'YAZIO (geplant)',
-          ranges: [
-            {
-              key: '7d',
-              label: '7 Tage',
-              data: [
-                { label: 'Mo', value: 83.1 },
-                { label: 'Di', value: 82.9 },
-                { label: 'Mi', value: 83.0 },
-                { label: 'Do', value: 82.6 },
-                { label: 'Fr', value: 82.7 },
-                { label: 'Sa', value: 82.5 },
-                { label: 'So', value: 82.4 },
-              ],
-            },
-            {
-              key: 'wochen',
-              label: 'Wochen',
-              data: [
-                { label: 'KW20', value: 85.4 },
-                { label: 'KW21', value: 85.0 },
-                { label: 'KW22', value: 84.7 },
-                { label: 'KW23', value: 84.4 },
-                { label: 'KW24', value: 84.1 },
-                { label: 'KW25', value: 83.8 },
-                { label: 'KW26', value: 83.5 },
-                { label: 'KW27', value: 83.2 },
-                { label: 'KW28', value: 83.0 },
-                { label: 'KW29', value: 82.8 },
-                { label: 'KW30', value: 82.6 },
-                { label: 'Jetzt', value: 82.5 },
-              ],
-            },
-            {
-              key: 'monat',
-              label: 'Monate',
-              data: [
-                { label: 'Aug', value: 91.5 },
-                { label: 'Sep', value: 90.8 },
-                { label: 'Okt', value: 90.0 },
-                { label: 'Nov', value: 89.2 },
-                { label: 'Dez', value: 88.5 },
-                { label: 'Jan', value: 88.0 },
-                { label: 'Feb', value: 87.2 },
-                { label: 'Mär', value: 86.7 },
-                { label: 'Apr', value: 85.4 },
-                { label: 'Mai', value: 84.3 },
-                { label: 'Jun', value: 83.2 },
-                { label: 'Jul', value: 82.4 },
-              ],
-            },
-          ],
-        },
         {
           id: 'bankdruecken',
           title: 'Bankdrücken (6 Wdh.)',
