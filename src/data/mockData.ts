@@ -300,6 +300,18 @@ export const areas: Area[] = [
         { id: 'seed-5', dateISO: '2026-04-14', amount: 30, source: 'Suno' },
         { id: 'seed-6', dateISO: '2026-03-02', amount: 75, source: 'YouTube' },
       ],
+      // Beispiel-Schulden (Avalanche: höchster Zins zuerst). Echte Werte lokal ersetzen.
+      debtsSeed: [
+        { id: 'debt-1', name: 'Bank-Darlehen', balance: 8200, rate: 7.7, monthly: 450, startBalance: 12000, endLabel: 'Mai 2033' },
+        { id: 'debt-2', name: 'Auto-Kredit', balance: 4200, rate: 7.0, monthly: 200, startBalance: 8000, endLabel: 'Mai 2032' },
+        { id: 'debt-3', name: 'KfW-Darlehen', balance: 1800, rate: 6.8, monthly: 100, startBalance: 3000, endLabel: 'Jul 2028' },
+      ],
+      // Beispiel anstehende Einmal-Zahlungen. Echte Werte lokal ersetzen.
+      upcomingSeed: [
+        { id: 'up-1', name: 'Neue Küche', amount: 3500, saved: 1200, dueLabel: 'Sep 2026' },
+        { id: 'up-2', name: 'Autoreparatur', amount: 1200, saved: 0, dueLabel: 'offen' },
+        { id: 'up-3', name: 'Urlaub', amount: 900, saved: 400, dueLabel: 'Aug 2026' },
+      ],
       goals: [
         {
           label: 'Schuldenabbau',

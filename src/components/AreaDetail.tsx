@@ -7,6 +7,8 @@ import { BuildingBlocks } from './BuildingBlocks'
 import { ImportantDates } from './ImportantDates'
 import { IdeasCard } from './IdeasCard'
 import { MonthlyFinance } from './MonthlyFinance'
+import { DebtManager } from './DebtManager'
+import { UpcomingPayments } from './UpcomingPayments'
 import { FinanceGate } from './FinanceGate'
 
 function goalProgress(g: ProgressGoal): number {
@@ -114,6 +116,12 @@ export function AreaDetail({
               accent={area.accent}
             />
           )}
+
+          {/* Finanzen: Schulden & Tilgung (Avalanche) */}
+          {detail.debtsSeed && <DebtManager seed={detail.debtsSeed} accent={area.accent} />}
+
+          {/* Finanzen: Anstehende Zahlungen & Rücklagen */}
+          {detail.upcomingSeed && <UpcomingPayments seed={detail.upcomingSeed} accent={area.accent} />}
 
           {/* Mess-Tracker mit Zeitraum-Umschaltung (z. B. Gewicht) */}
           {detail.trackers?.map((t) => (

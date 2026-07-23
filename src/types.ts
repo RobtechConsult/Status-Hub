@@ -83,6 +83,26 @@ export interface MonthlyBudget {
   currency?: string
 }
 
+/** Ein einzelner Kredit/Schuldenposten (Avalanche-Tilgung nach Zins). */
+export interface Debt {
+  id: string
+  name: string
+  balance: number // aktuelle Restschuld
+  rate: number // Zins % p.a.
+  monthly: number // Rate €/Monat
+  startBalance?: number // Startschuld (für Fortschritt)
+  endLabel?: string // z. B. "Mai 2033"
+}
+
+/** Eine anstehende Einmal-Zahlung / Rücklage. */
+export interface UpcomingPayment {
+  id: string
+  name: string
+  amount: number
+  saved?: number // bereits zurückgelegt
+  dueLabel?: string // z. B. "Sep 2026"
+}
+
 /** Eine umschaltbare Zeitraum-Ansicht innerhalb eines Trackers. */
 export interface RangeSeries {
   key: string
@@ -146,6 +166,10 @@ export interface AreaDetail {
   monthlyBudget?: MonthlyBudget
   /** Für Finanzen: Start-Beispieleinträge Nebenverdienst (falls noch nichts gespeichert) */
   sideIncomeSeed?: SideIncomeEntry[]
+  /** Für Finanzen: Start-Beispiel-Schulden (Avalanche) */
+  debtsSeed?: Debt[]
+  /** Für Finanzen: Start-Beispiel anstehende Zahlungen */
+  upcomingSeed?: UpcomingPayment[]
 }
 
 export interface Area {

@@ -126,7 +126,20 @@ Zu trackende Bausteine:
 - **Nebenverdienst-Erfassung:** Eingabefeld (Betrag + Quelle: YouTube/Suno/Freelance/…),
   **lokal gespeichert** (localStorage), mit **Monats-Balkengraph** und Eintragsliste (löschbar).
   → Erster echter „Daten eingeben & speichern"-Baustein (Vorbote Phase 2). Noch keine Cloud.
+- **Schulden & Tilgung (Avalanche)** [aus CEO-Kostenüberschlag abgeleitet]: mehrere Kredite mit
+  Restschuld, **Zins %**, Rate, Enddatum; sortiert nach Zins-Priorität; Gesamt-Restschuld +
+  grobe Restlaufzeit; **auto-generierter Next Step** („Extra-Tilgung zuerst auf höchsten Zins").
+  Editierbar + lokal gespeichert.
+- **Anstehende Zahlungen & Rücklagen** [aus „Was muss ich zahlen"]: Einmal-Ausgaben mit Betrag,
+  Fälligkeit, Spar-Fortschritt; Summe + „fehlt noch" + Next Step. Editierbar + lokal gespeichert.
 - Restschuld-Verlauf, „schuldenfrei"-Datum, offene Rechnungen (unverändert, Beispieldaten).
+
+**Datenschutz:** Echte Finanzzahlen des CEO werden **nicht** ins (öffentliche) Repo geschrieben —
+nur generische Beispiele im Code; echte Werte trägt der CEO lokal ein (localStorage, bleibt am Gerät).
+
+**Quelle:** Basiert auf CEO-Datei „Kostenüberschlag.xlsx", Blatt „Finanzen (Neu)" (2026-07-23).
+Noch offen als spätere Stufe: kategorisierte Ein-/Ausgaben, Vermögens-/Jahres-Projektion
+(Blätter „Aktien"/„Statistiken"/„Roadmap How to get Rich") → möglicher künftiger Bereich „Vermögen".
 
 **Allgemein (2026-07-23):** Verlaufs-Graphen sind bei viel Historie **horizontal swipebar**
 (z. B. Gewicht/Bankdrücken über 12 Monate) — startet rechts (aktuell), Wischen zeigt Vergangenheit.
@@ -250,6 +263,7 @@ der CEO die KPIs (Abschnitt 5) und den Entwickler-Namen bestätigt.
 | 2026-07-23 | Finanzen: Monatsbilanz (Übrig) + Nebenverdienst-Erfassung mit lokaler Speicherung + Monatsgraph | CEO/Forge |
 | 2026-07-23 | Graphen allgemein horizontal swipebar bei viel Historie | CEO/Forge |
 | 2026-07-23 | Gewicht „4 Wochen" → „Wochen" (12 Wochen, swipebar); Tooltip: Punkt antippen zeigt exakten Wert | CEO/Forge |
+| 2026-07-23 | Finanzen: Modul „Schulden & Tilgung (Avalanche)" + „Anstehende Zahlungen/Rücklagen" (aus Kostenüberschlag.xlsx), editierbar & lokal, mit auto-Next-Steps | CEO/Forge |
 | 2026-07-23 | **Stehende Freigabe:** abgestimmte Verbesserungen werden künftig automatisch sofort live geschaltet (Merge nach `main` → Deploy). Bei Heiklem (Sicherheit, Sichtbarkeit, echte Daten) fragt Javis weiter nach. | CEO |
 
 ---
