@@ -214,6 +214,8 @@ der CEO die KPIs (Abschnitt 5) und den Entwickler-Namen bestätigt.
 | 2026-07-23 | Repo öffentlich geschaltet (für iPhone-Test mit Fake-Daten); `finbert22` aus Code+Historie entfernt, PW jetzt via `VITE_FINANCE_PASSWORD` (Public-Test-PW: `demo`) | CEO/Javis |
 | 2026-07-23 | Code auf `main` gemergt; GitHub Pages Deploy erfolgreich | CEO/Javis |
 | 2026-07-23 | **🟢 LIVE:** https://robtechconsult.github.io/Status-Hub/ | — |
+| 2026-07-23 | Training-Detail ausgebaut (Gewicht/Bankdrücken/Schritte, Zeiträume, Ziele) | CEO/Forge |
+| 2026-07-23 | **Stehende Freigabe:** abgestimmte Verbesserungen werden künftig automatisch sofort live geschaltet (Merge nach `main` → Deploy). Bei Heiklem (Sicherheit, Sichtbarkeit, echte Daten) fragt Javis weiter nach. | CEO |
 
 ---
 
