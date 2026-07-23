@@ -108,11 +108,12 @@ export function AreaDetail({
             ))}
           </div>
 
-          {/* Finanzen: Monatsbilanz + Nebenverdienst-Erfassung */}
-          {detail.monthlyBudget && (
+          {/* Finanzen: Monatsbilanz + kategorisierte Ein-/Ausgaben + Nebenverdienst */}
+          {detail.incomeSeed && (
             <MonthlyFinance
-              budget={detail.monthlyBudget}
-              seed={detail.sideIncomeSeed ?? []}
+              incomeSeed={detail.incomeSeed}
+              expenseSeed={detail.expenseSeed ?? []}
+              sideSeed={detail.sideIncomeSeed ?? []}
               accent={area.accent}
             />
           )}

@@ -122,7 +122,10 @@ Zu trackende Bausteine:
 > gespeichert (Umgebungsvariable zur Build-Zeit). Siehe Abschnitt 6.2.
 
 **Detailausbau (2026-07-23):**
-- **Monatsbilanz:** Einnahmen (Lohn + Nebenverdienst) − Ausgaben = **„Übrig"** prominent.
+- **Kategorisierte Ein-/Ausgaben:** editierbare Kategorien (Einnahmen; Ausgaben mit
+  **fix/variabel**-Tag), lokal gespeichert. Die **Monatsbilanz rechnet automatisch daraus**
+  (Einnahmen = Kategorien + Nebenverdienst; Ausgaben inkl. Fix-/Variabel-Aufteilung).
+- **Monatsbilanz:** Einnahmen (Kategorien + Nebenverdienst) − Ausgaben = **„Übrig"** prominent.
 - **Nebenverdienst-Erfassung:** Eingabefeld (Betrag + Quelle: YouTube/Suno/Freelance/…),
   **lokal gespeichert** (localStorage), mit **Monats-Balkengraph** und Eintragsliste (löschbar).
   → Erster echter „Daten eingeben & speichern"-Baustein (Vorbote Phase 2). Noch keine Cloud.
@@ -264,6 +267,7 @@ der CEO die KPIs (Abschnitt 5) und den Entwickler-Namen bestätigt.
 | 2026-07-23 | Graphen allgemein horizontal swipebar bei viel Historie | CEO/Forge |
 | 2026-07-23 | Gewicht „4 Wochen" → „Wochen" (12 Wochen, swipebar); Tooltip: Punkt antippen zeigt exakten Wert | CEO/Forge |
 | 2026-07-23 | Finanzen: Modul „Schulden & Tilgung (Avalanche)" + „Anstehende Zahlungen/Rücklagen" (aus Kostenüberschlag.xlsx), editierbar & lokal, mit auto-Next-Steps | CEO/Forge |
+| 2026-07-23 | Finanzen: kategorisierte Ein-/Ausgaben (fix/variabel), editierbar & lokal; Monatsbilanz rechnet automatisch daraus | CEO/Forge |
 | 2026-07-23 | **Stehende Freigabe:** abgestimmte Verbesserungen werden künftig automatisch sofort live geschaltet (Merge nach `main` → Deploy). Bei Heiklem (Sicherheit, Sichtbarkeit, echte Daten) fragt Javis weiter nach. | CEO |
 
 ---

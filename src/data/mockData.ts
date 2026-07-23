@@ -289,8 +289,22 @@ export const areas: Area[] = [
         { label: 'Tilgung / Monat', value: '750 €', hint: 'Ø letzte 3 Monate' },
         { label: 'Fixkosten / Monat', value: '2.490 €', hint: 'Miete, Kredit, ...' },
       ],
-      // Grundwerte für die Monatsbilanz (Lohn & feste Ausgaben)
-      monthlyBudget: { baseIncome: 2800, fixedExpenses: 2490, currency: '€' },
+      // Kategorisierte Einnahmen (Beispiel; echte Werte lokal ersetzen)
+      incomeSeed: [
+        { id: 'inc-1', label: 'Gehalt', amount: 2800, kind: 'fix' },
+        { id: 'inc-2', label: 'Firmenwagen', amount: 300, kind: 'fix' },
+      ],
+      // Kategorisierte Ausgaben, fix vs. variabel (Beispiel; echte Werte lokal ersetzen)
+      expenseSeed: [
+        { id: 'exp-1', label: 'Miete / Wohnen', amount: 1180, kind: 'fix' },
+        { id: 'exp-2', label: 'Kreditraten', amount: 750, kind: 'fix' },
+        { id: 'exp-3', label: 'Strom', amount: 90, kind: 'fix' },
+        { id: 'exp-4', label: 'Internet & Mobil', amount: 62, kind: 'fix' },
+        { id: 'exp-5', label: 'Versicherungen', amount: 25, kind: 'fix' },
+        { id: 'exp-6', label: 'Business-Tools', amount: 125, kind: 'fix' },
+        { id: 'exp-7', label: 'Lebensmittel', amount: 490, kind: 'variabel' },
+        { id: 'exp-8', label: 'Sonstiges', amount: 100, kind: 'variabel' },
+      ],
       // Beispiel-Nebenverdienst (nur beim allerersten Start; danach lokal gespeichert)
       sideIncomeSeed: [
         { id: 'seed-1', dateISO: '2026-07-05', amount: 120, source: 'YouTube' },

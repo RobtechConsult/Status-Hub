@@ -83,6 +83,14 @@ export interface MonthlyBudget {
   currency?: string
 }
 
+/** Eine Ein- oder Ausgabe-Kategorie (fix oder variabel). */
+export interface BudgetItem {
+  id: string
+  label: string
+  amount: number
+  kind: 'fix' | 'variabel'
+}
+
 /** Ein einzelner Kredit/Schuldenposten (Avalanche-Tilgung nach Zins). */
 export interface Debt {
   id: string
@@ -162,8 +170,12 @@ export interface AreaDetail {
   ideas?: IdeaCategory[]
   /** Für Finanzen: offene Rechnungen */
   bills?: Bill[]
-  /** Für Finanzen: Grundwerte der Monatsbilanz */
+  /** Für Finanzen: Grundwerte der Monatsbilanz (Fallback, wenn keine Kategorien) */
   monthlyBudget?: MonthlyBudget
+  /** Für Finanzen: Start-Beispiel Einnahmen-Kategorien */
+  incomeSeed?: BudgetItem[]
+  /** Für Finanzen: Start-Beispiel Ausgaben-Kategorien */
+  expenseSeed?: BudgetItem[]
   /** Für Finanzen: Start-Beispieleinträge Nebenverdienst (falls noch nichts gespeichert) */
   sideIncomeSeed?: SideIncomeEntry[]
   /** Für Finanzen: Start-Beispiel-Schulden (Avalanche) */
