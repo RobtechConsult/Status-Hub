@@ -35,11 +35,13 @@ export interface ProgressGoal {
 }
 
 export interface BuildingBlock {
+  /** eindeutige ID (für lokale „zuletzt erledigt"-Speicherung) */
+  id?: string
   icon: string
   label: string
   lastLabel: string
   status: Status
-  /** Tage seit dem letzten Mal */
+  /** Tage seit dem letzten Mal (Startwert; danach aus lokalem Datum berechnet) */
   daysSince?: number
   /** Ziel-Intervall in Tagen (z. B. Date Night alle 10 Tage) */
   targetDays?: number

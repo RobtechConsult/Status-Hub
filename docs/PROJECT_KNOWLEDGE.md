@@ -226,6 +226,20 @@ Phase 4  Weitere Schnittstellen   Finanzen, Training-APIs, weitere Bereiche
 Phase 5  Intelligenz              Trends, Erinnerungen, „Javis spricht mit dir"
 ```
 
+### 7.2 Infrastruktur-Entscheidung „Cloudflare" (CEO-Richtung 2026-07-24, geparkt)
+
+> **Status: vorgemerkt, kommt später** — der CEO kümmert sich später drum.
+
+- **Gemeinsame Hosting-Basis = Cloudflare** für mehrere Projekte (Status Hub-Backend + Spiel
+  „Line Surfer" mit Highscore-Liste): Pages (statisch), **Workers** (Serverless-Backend),
+  **D1** (SQLite-DB), DNS. Bei kleiner Größe praktisch kostenlos; kein VPS.
+- **Domain bleibt bei IONOS** (kein Wechsel) → per DNS auf Cloudflare zeigen, Projekte über
+  **Subdomains** (`hub.…`, `linesurfer-api.…`, `api.…`).
+- **Erster praktischer Baustein:** Line-Surfer-Highscores (Worker + D1) — dient als Vorlage
+  fürs Status-Hub-Backend (YAZIO-Pull + Claude-Briefing, siehe 7.1).
+- Briefing an den Line-Surfer-Agenten wurde am 2026-07-24 an den CEO übergeben.
+- **Offene Wahl:** reines Cloudflare D1 (empfohlen) vs. Cloudflare + Supabase (DB mit fertiger API).
+
 ### 7.1 Ausbaustufe „Javis-Intelligenz" (CEO-Idee 2026-07-23)
 
 **Vision:** Pull-to-Refresh / „Aktualisieren"-Knopf im Hub → eine KI (Claude) geht die
@@ -277,6 +291,8 @@ der CEO die KPIs (Abschnitt 5) und den Entwickler-Namen bestätigt.
 | 2026-07-23 | Finanzen: kategorisierte Ein-/Ausgaben (fix/variabel), editierbar & lokal; Monatsbilanz rechnet automatisch daraus | CEO/Forge |
 | 2026-07-23 | Training: Gewichts-Eingabe (lokal), Kurve aus Einträgen aggregiert (7T/Wochen/Monate) — Fundament für späteren YAZIO-Auto-Pull | CEO/Forge |
 | 2026-07-23 | Nächste große Stufe: Integrations-Server (YAZIO-Pull + Javis-Briefing) — braucht CEO-Zugangsdaten (serverseitig) + Hosting | offen |
+| 2026-07-24 | Infrastruktur-Richtung Cloudflare geparkt (siehe 7.2); Line-Surfer-Briefing an CEO übergeben | CEO |
+| 2026-07-24 | Beziehung: Pflege-Bausteine interaktiv — „Erledigt"-Buttons setzen „heute", berechnen „vor X Tagen" + Rhythmus-Ampel neu, lokal gespeichert | CEO/Forge |
 | 2026-07-23 | **Stehende Freigabe:** abgestimmte Verbesserungen werden künftig automatisch sofort live geschaltet (Merge nach `main` → Deploy). Bei Heiklem (Sicherheit, Sichtbarkeit, echte Daten) fragt Javis weiter nach. | CEO |
 
 ---

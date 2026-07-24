@@ -142,10 +142,10 @@ export const areas: Area[] = [
       ],
       // Bausteine mit Ziel-Intervall (Rhythmus) → Ampel & „fällig" abgeleitet
       buildingBlocks: [
-        { icon: '🍷', label: 'Date Night', lastLabel: 'vor 12 Tagen', status: 'red', daysSince: 12, targetDays: 10 },
-        { icon: '🎁', label: 'Gesten', lastLabel: 'vor 3 Tagen', status: 'green', daysSince: 3, targetDays: 4 },
-        { icon: '🧸', label: 'Zeit mit Kind', lastLabel: 'gestern', status: 'green', daysSince: 1, targetDays: 2 },
-        { icon: '💬', label: 'Qualitätszeit', lastLabel: 'vor 2 Tagen', status: 'green', daysSince: 2, targetDays: 3 },
+        { id: 'datenight', icon: '🍷', label: 'Date Night', lastLabel: 'vor 12 Tagen', status: 'red', daysSince: 12, targetDays: 10 },
+        { id: 'gesten', icon: '🎁', label: 'Gesten', lastLabel: 'vor 3 Tagen', status: 'green', daysSince: 3, targetDays: 4 },
+        { id: 'kind', icon: '🧸', label: 'Zeit mit Kind', lastLabel: 'gestern', status: 'green', daysSince: 1, targetDays: 2 },
+        { id: 'qualitaet', icon: '💬', label: 'Qualitätszeit', lastLabel: 'vor 2 Tagen', status: 'green', daysSince: 2, targetDays: 3 },
       ],
       // Wichtige Termine mit Countdown
       importantDates: [
