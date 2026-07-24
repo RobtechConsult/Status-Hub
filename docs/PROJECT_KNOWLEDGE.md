@@ -293,6 +293,7 @@ der CEO die KPIs (Abschnitt 5) und den Entwickler-Namen bestätigt.
 | 2026-07-23 | Nächste große Stufe: Integrations-Server (YAZIO-Pull + Javis-Briefing) — braucht CEO-Zugangsdaten (serverseitig) + Hosting | offen |
 | 2026-07-24 | Infrastruktur-Richtung Cloudflare geparkt (siehe 7.2); Line-Surfer-Briefing an CEO übergeben | CEO |
 | 2026-07-24 | Beziehung: Pflege-Bausteine interaktiv — „Erledigt"-Buttons setzen „heute", berechnen „vor X Tagen" + Rhythmus-Ampel neu, lokal gespeichert | CEO/Forge |
+| 2026-07-24 | Daten-Sicherung (Export/Import aller lokalen `sh_*`-Daten als JSON) — schützt vor Datenverlust, bis Cloud kommt | Javis proaktiv |
 | 2026-07-23 | **Stehende Freigabe:** abgestimmte Verbesserungen werden künftig automatisch sofort live geschaltet (Merge nach `main` → Deploy). Bei Heiklem (Sicherheit, Sichtbarkeit, echte Daten) fragt Javis weiter nach. | CEO |
 
 ---

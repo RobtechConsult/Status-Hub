@@ -1,5 +1,6 @@
 import type { Area } from '../types'
 import { AreaCard } from './AreaCard'
+import { BackupPanel } from './BackupPanel'
 
 export function Dashboard({
   areas,
@@ -35,6 +36,10 @@ export function Dashboard({
             <AreaCard area={area} unlocked={!!unlocked[area.id]} onOpen={() => onOpen(area.id)} />
           </div>
         ))}
+      </div>
+
+      <div className="mt-3">
+        <BackupPanel accent="#38bdf8" />
       </div>
     </div>
   )
