@@ -1,6 +1,7 @@
 import type { Area } from '../types'
 import { AreaCard } from './AreaCard'
 import { BackupPanel } from './BackupPanel'
+import { MorningBriefing } from './MorningBriefing'
 
 export function Dashboard({
   areas,
@@ -29,6 +30,8 @@ export function Dashboard({
           {greenCount} von {areas.length} Bereichen on track. Dein Cockpit auf einen Blick.
         </p>
       </header>
+
+      <MorningBriefing areas={areas} />
 
       <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
         {areas.map((area, i) => (

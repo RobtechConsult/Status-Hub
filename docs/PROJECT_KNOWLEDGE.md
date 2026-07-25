@@ -294,6 +294,8 @@ der CEO die KPIs (Abschnitt 5) und den Entwickler-Namen bestätigt.
 | 2026-07-24 | Infrastruktur-Richtung Cloudflare geparkt (siehe 7.2); Line-Surfer-Briefing an CEO übergeben | CEO |
 | 2026-07-24 | Beziehung: Pflege-Bausteine interaktiv — „Erledigt"-Buttons setzen „heute", berechnen „vor X Tagen" + Rhythmus-Ampel neu, lokal gespeichert | CEO/Forge |
 | 2026-07-24 | Daten-Sicherung (Export/Import aller lokalen `sh_*`-Daten als JSON) — schützt vor Datenverlust, bis Cloud kommt | Javis proaktiv |
+| 2026-07-25 | Lokales Morgen-Briefing „Dein Tag heute" auf Dashboard (überfällige Bausteine/Rechnungen + Fokus je Bereich) — lokaler Vorläufer des Javis-KI-Briefings | CEO/Forge |
+| 2026-07-25 | Echtes App-Icon als PNG (192/512 + apple-touch 180) aus dem Vektor-Icon gerendert; Manifest/HTML aktualisiert | CEO/Forge |
 | 2026-07-23 | **Stehende Freigabe:** abgestimmte Verbesserungen werden künftig automatisch sofort live geschaltet (Merge nach `main` → Deploy). Bei Heiklem (Sicherheit, Sichtbarkeit, echte Daten) fragt Javis weiter nach. | CEO |
 
 ---
