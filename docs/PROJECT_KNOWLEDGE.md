@@ -226,6 +226,28 @@ Phase 4  Weitere Schnittstellen   Finanzen, Training-APIs, weitere Bereiche
 Phase 5  Intelligenz              Trends, Erinnerungen, „Javis spricht mit dir"
 ```
 
+### 7.3 Namensfindung Dachmarke (2026-07-25, GEPARKT — bewusst)
+
+**Entscheidung:** Wir bauen vorerst unter dem **Codenamen „Status Hub"** weiter und ändern
+nichts. Der finale Marken-/Firmenname wird **vor dem Public-Launch** festgelegt (Rebranding
+vor Launch = ~0 Kosten). Bis dahin: Namenssuche „auf dem Schirm", ohne Momentum zu bremsen.
+
+**Wichtige Erkenntnisse aus der bisherigen Suche (damit man nicht bei null startet):**
+- Gesucht wird der Name der **Dachmarke/Firma** (nicht nur der Trainings-App), da Vision =
+  Ökosystem (Training, Ernährung, Finanzen, Beziehung, Health, KI) → 20-Jahre-Name.
+- Bester Archetyp = **Typ C mit versteckter Bedeutung** (Kodak/Garmin/Figma/Spotify/Asana):
+  Kunstwort mit Charakter. Nicht: leere Kunstwörter (Axnori/Axitiq) und riskante echte Wörter.
+- **Offene Kern-Entscheidung des CEO:** Soll die Marke **warm/menschlich** (Notion, Oura) oder
+  **präzise/technisch** (Garmin, Nvidia) wirken? Javis-Empfehlung: **warm** (intime Lebensbereiche,
+  soll geteilt/geliebt werden). Diese Achse lenkt die Suche zu ~90 %.
+- **Pflicht-Kriterien** (aus der Recherche destilliert): (1) keine gleiche Marke/App in Klasse 9,
+  (2) sauberer App-Store-Name, (3) einheitliche Handles IG+TikTok, (4) gute .app/.co/.io, (5) .com Bonus.
+- **Schon geprüft & VERGEBEN/ungeeignet:** FitWorld, Kairo/Kairos, Ascora, Repora, Nuvo, Voltiq,
+  Movara, Kyvo, Zoru, Ryvo, Oros, Syro, Klyr, Kestra, Fathom, Ingot, Robur, Temper, Basalt (Basalt
+  Health), Moraine (.com Premium + B2B-Marken), Statra (≈Strava + statra.com belegt).
+- **Prozess für später:** CEO entscheidet Achse (warm/technisch) → gezielt Typ-C-Kandidaten →
+  harte Deadline + Entscheidungsregel → parallel weiter bauen.
+
 ### 7.2 Infrastruktur-Entscheidung „Cloudflare" (CEO-Richtung 2026-07-24, geparkt)
 
 > **Status: vorgemerkt, kommt später** — der CEO kümmert sich später drum.
